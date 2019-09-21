@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import CameraIcon from '@material-ui/icons/PhotoCamera';
 
 export function SimpleContainer() {
   return (
@@ -63,7 +63,7 @@ export default function UploadButton(props) {
       />
       <label htmlFor="upload-button-file">
         <Button variant="contained" component="span" className={classes.button}>
-          Upload
+          <CameraIcon/>
         </Button>
       </label>
     </div>

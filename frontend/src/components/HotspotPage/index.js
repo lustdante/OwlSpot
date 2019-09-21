@@ -30,9 +30,25 @@ function HotspotPage(props) {
   const classes = useStyles();
   const hotspotName = props.match.params.hotspotId
 
+
+  // Top component
+    // Butotns & Name
+
+  // Bottom Component
+      // Descript + Pic
+      // Gallery
+
+
+
   return (
     <div>
-      <Fab color="primary" aria-label="add" className={classes.fabBack}>
+      // Floating
+      <HeaderComponent></HeaderComponent>
+
+      <BodyComponent></BodyComponent>
+
+
+      {/* <Fab color="primary" aria-label="add" className={classes.fabBack}>
         <BackIcon />
       </Fab>
       <Fab color="primary" aria-label="add" className={classes.fabUpload}>
@@ -40,10 +56,8 @@ function HotspotPage(props) {
       </Fab>
       <HotspotInfo
         hotspotName = {hotspotName}
-      />
-      <h2>The camera will be floating here</h2>
-
-      <h2>The Gallery will be here</h2>
+      /> */}
+      
     </div>
   );
 }
