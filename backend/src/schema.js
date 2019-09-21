@@ -2,6 +2,9 @@ const models = require('./models');
 
 const rootTypeDefs = `
   type Query {
+    """Print env"""
+    env: String!
+
     """Get list of all hotspots"""
     hotspots: [Hotspot]!
 
@@ -44,6 +47,7 @@ module.exports = {
   typeDefs: [rootTypeDefs],
   resolvers: {
     Query: {
+      env: () => process.env.app__ENV,
       hotspots: () => models.Hotspot.findAll(),
       hotspot: (root, { hotspotId }) =>
         models.Hotspot.findOne({ where: { id: hotspotId } }),
