@@ -9,6 +9,7 @@
     "start": "./node_modules/.bin/pm2 start ecosystem.config.js",
     "start:production": "./node_modules/.bin/pm2 start ecosystem.config.js --env production",
     "stop": "./node_modules/.bin/pm2 delete ecosystem.config.js",
+    "log": "./node_modules/.bin/pm2 log ecosystem.config.js",
     "force-sync": "node ./src/migrations/force-sync",
     "build-docker": "node cli build-docker"
   },
