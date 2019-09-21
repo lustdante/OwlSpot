@@ -5,7 +5,6 @@ function DashboardPage() {
   return (
     <div>
       <Googlemap></Googlemap>
-      <button></button>
     </div>
   );
 }

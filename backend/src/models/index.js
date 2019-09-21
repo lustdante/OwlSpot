@@ -26,6 +26,12 @@ const models = {
   sequelize,
   Op: sequelize.Op,
   Hotspot: sequelize.import('hotspots', require('./hotspot')),
+  HotspotPhoto: sequelize.import('hotspot_photos', require('./hotspot_photo')),
 };
+
+models.Hotspot.hasMany(models.HotspotPhoto, {
+  as: 'photos',
+  foreignKey: 'hotspotId',
+});
 
 module.exports = models;
