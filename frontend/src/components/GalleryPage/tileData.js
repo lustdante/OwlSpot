@@ -28,42 +28,26 @@ const tileData = [
     author: 'Hans',
   },
   {
-    img: '/static/images/grid-list/honey.jpg',
-    title: 'Honey',
-    author: 'fancycravel',
+    img: 'https://miro.medium.com/max/10704/1*42VaFA9d-d7AqW8TtUcUtA.jpeg',
+    title: 'Star War',
+    author: 'Hans',
   },
   {
-    img: '/static/images/grid-list/vegetables.jpg',
-    title: 'Vegetables',
-    author: 'jill111',
-    cols: 2,
+    img: 'http://www.tompetty.com/sites/g/files/g2000007521/f/sample1_0.jpg',
+    title: 'Mechanics',
+    author: 'Hans',
   },
   {
-    img: '/static/images/grid-list/plant.jpg',
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
+    img: 'https://kbob.github.io/images/sample-5.jpg',
+    title: 'Pencils',
+    author: 'Hans',
   },
   {
-    img: '/static/images/grid-list/mushroom.jpg',
-    title: 'Mushrooms',
-    author: 'PublicDomainPictures',
-  },
-  {
-    img: '/static/images/grid-list/olive.jpg',
-    title: 'Olive oil',
-    author: 'congerdesign',
-  },
-  {
-    img: '/static/images/grid-list/star.jpg',
-    title: 'Sea star',
-    cols: 2,
-    author: '821292',
-  },
-  {
-    img: '/static/images/grid-list/bike.jpg',
-    title: 'Bike',
-    author: 'danfador',
-  },
+    img: 'https://9to5mac.com/wp-content/uploads/sites/6/2019/09/iPhone-11-Pro-sample-photos.jpg?quality=82&strip=all',
+    title: 'iPhone',
+    author: 'Hans',
+  }
+
 ];
 
 export default tileData;
