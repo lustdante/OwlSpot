@@ -16,11 +16,6 @@ function App() {
           path="/hotspots/:hotspotId/gallery"
           component={GalleryPage}
         />
-        <Route
-          exact
-          path="/hotspots/:hotspotId/gallery"
-          component={GalleryPage}
-        />
         <Route exact path="/hotspots/:hotspotId" component={HotspotPage} />
         <Route exact path="/photoDemo" component={PhotoDemoPage} />
         <Route exact path="/" component={LandingPage} />

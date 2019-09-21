@@ -1,32 +1,31 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { SimpleContainer, UploadButton } from './demoComponents'
+import UploadButton from './demoComponents';
 
 const styles = {
-    input: {
-        display: 'none',
-    }
+  input: {
+    display: 'none',
+  },
 };
 
 class PhotoDemoPage extends Component {
-
   constructor() {
-    super()
+    super();
     this.state = {
-      imgUrl: null
-    }
+      imgUrl: null,
+    };
   }
 
   render() {
-    // console.log(this.props.classes.)  
     return (
       <div>
-        <h2 align='center'>Try taking a photo or uploading a photo mother father</h2>
+        <h2 align="center">
+          Try taking a photo or uploading a photo mother father
+        </h2>
         <UploadButton
           className={this.props.classes.button}
-          onImageChange={(newImage) => this.setState({ imgUrl: newImage })}
+          onImageChange={newImage => this.setState({ imgUrl: newImage })}
         />
-        <SimpleContainer/>
         {this.state.imgUrl && <img src={this.state.imgUrl} />}
       </div>
     );

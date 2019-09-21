@@ -1,21 +1,8 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
-
-import { makeStyles } from '@material-ui/core/styles';
+import { graphql } from 'react-apollo';
 import Button from '@material-ui/core/Button';
-
-
-export function SimpleContainer() {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="sm">
-        <h3 align='left'>After submitting a photo console.log should print the file name</h3>
-      </Container>
-    </React.Fragment>
-  );
-}
+import { makeStyles } from '@material-ui/core/styles';
+import { mutation } from './queries';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -31,33 +18,30 @@ function uploadBase64(file, props) {
   var reader = new FileReader();
   reader.readAsDataURL(file);
 
-  reader.onload = function () {
+  reader.onload = function() {
     props.onImageChange(reader.result);
     console.log(reader.result);
   };
-  reader.onerror = function (error) {
+  reader.onerror = function(error) {
     console.log('Error: ', error);
   };
 }
 
-export function UploadButton(props) {
-  
-  const fileUploadedHandler = (event) => {
+const UploadButton = props => {
+  const fileUploadedHandler = async event => {
     const file = event.target.files[0];
-    console.log(file);
+    await props.updatePhoto({ variables: { upload: file, hotspotId: 123 } });
     uploadBase64(file, props);
-    console.log(props.imgUrl)
-  }
+    console.log(props.imgUrl);
+  };
 
   const classes = useStyles();
-
   var button = (
     <div className={props.className}>
       <input
         accept="image/*"
         className={classes.input}
         id="upload-button-file"
-        multiple
         type="file"
         onChange={fileUploadedHandler}
       />
@@ -70,4 +54,8 @@ export function UploadButton(props) {
   );
 
   return button;
-}
+};
+
+export default graphql(mutation.updatePhoto, {
+  name: 'updatePhoto',
+})(UploadButton);
