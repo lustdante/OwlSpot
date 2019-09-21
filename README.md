@@ -1,4 +1,4 @@
-# Owlspot
+# OwlSpot
 Hackrice 2019
 
 ## Team
