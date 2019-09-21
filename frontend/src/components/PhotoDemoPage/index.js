@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { SimpleContainer, ContainedButtons } from './demoComponents'
+import { SimpleContainer, UploadButton } from './demoComponents'
 
 const styles = {
     input: {
@@ -22,12 +22,11 @@ class PhotoDemoPage extends Component {
     return (
       <div>
         <h2 align='center'>Try taking a photo or uploading a photo mother father</h2>
-        <ContainedButtons
+        <UploadButton
           className={this.props.classes.button}
-          imgUrl={this.state.imgUrl}
           onImageChange={(newImage) => this.setState({ imgUrl: newImage })}
         />
-        <SimpleContainer></SimpleContainer>
+        <SimpleContainer/>
         {this.state.imgUrl && <img src={this.state.imgUrl} />}
       </div>
     );

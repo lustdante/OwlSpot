@@ -17,8 +17,6 @@ export function SimpleContainer() {
   );
 }
 
-
-
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
@@ -42,7 +40,7 @@ function uploadBase64(file, props) {
   };
 }
 
-export function ContainedButtons(props) {
+export function UploadButton(props) {
   
   const fileUploadedHandler = (event) => {
     const file = event.target.files[0];
@@ -58,12 +56,12 @@ export function ContainedButtons(props) {
       <input
         accept="image/*"
         className={classes.input}
-        id="contained-button-file"
+        id="upload-button-file"
         multiple
         type="file"
         onChange={fileUploadedHandler}
       />
-      <label htmlFor="contained-button-file">
+      <label htmlFor="upload-button-file">
         <Button variant="contained" component="span" className={classes.button}>
           Upload
         </Button>
