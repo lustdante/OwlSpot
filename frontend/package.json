@@ -3,15 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.4.2",
+    "@material-ui/icons": "^4.4.1",
+    "apollo-boost": "^0.4.4",
+    "apollo-link-context": "^1.0.19",
+    "clsx": "^1.0.4",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-apollo": "^3.1.1",
     "react-dom": "^16.9.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.2"
+  },
+  "config": {
+    "unsafe-perm": true,
+    "aws-profile": "owlspot",
+    "aws-s3-bucket": "owlspot-web",
+    "aws-cloudfront-id": "E1H6Y98I8PCMQL"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "invalidate": "aws --profile=$npm_package_config_aws_profile cloudfront create-invalidation --distribution-id $npm_package_config_aws_cloudfront_id --paths '/*'",
+    "predeploy": "npm run build",
+    "deploy": "aws --profile=$npm_package_config_aws_profile s3 sync build/ s3://$npm_package_config_aws_s3_bucket",
+    "postdeploy": "npm run invalidate"
   },
   "eslintConfig": {
     "extends": "react-app"
