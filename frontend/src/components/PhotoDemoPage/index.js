@@ -26,7 +26,7 @@ class PhotoDemoPage extends Component {
           className={this.props.classes.button}
           onImageChange={newImage => this.setState({ imgUrl: newImage })}
         />
-        {this.state.imgUrl && <img src={this.state.imgUrl} />}
+        {this.state.imgUrl && <img alt="" src={this.state.imgUrl} />}
       </div>
     );
   }
