@@ -1,14 +1,23 @@
 import React from 'react';
-import {SimpleContainer, ContainedButtons} from './demoComponents'
+import { withStyles } from '@material-ui/core/styles';
+import { SimpleContainer, ContainedButtons } from './demoComponents'
 
-function PhotoDemoPage() {
+const styles = {
+    button: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+};
+
+function PhotoDemoPage(props) {
+    console.log(props.classes)
   return (
     <div>
-      This is the Photo Demo Page
+      <h2 align='center'>Try taking a photo or uploading a photo mother father</h2>
+      <ContainedButtons className={props.classes.button} />
       <SimpleContainer></SimpleContainer>
-      <ContainedButtons></ContainedButtons>
     </div>
   );
 }
 
-export default PhotoDemoPage;
+export default withStyles(styles)(PhotoDemoPage);

@@ -1,6 +1,5 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +11,7 @@ export function SimpleContainer() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '10vh' }} />
+        <h3 align='left'>After submitting a photo console.log should print the file name</h3>
       </Container>
     </React.Fragment>
   );
@@ -30,11 +29,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export function ContainedButtons() {
+export function ContainedButtons(props) {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={props.className}>
       <input
         accept="image/*"
         className={classes.input}
