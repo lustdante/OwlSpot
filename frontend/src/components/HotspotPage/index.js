@@ -1,18 +1,53 @@
 import React from 'react';
-import PaperSheet from './hotspotInfo';
+import Fab from '@material-ui/core/Fab';
+import { makeStyles } from '@material-ui/core/styles';
+import BackIcon from '@material-ui/icons/ArrowBack';
+
+import HotspotInfo from './hotspotInfo';
+import FloatingUploadButton from './floatingUpload'
+
+const useStyles = makeStyles(theme => ({
+  fabBack: {
+    margin: theme.spacing(1),
+    background: 'gray',
+    position: 'fixed',
+    left: '1px',
+    top: '20px',
+  },
+  fabUpload: {
+    margin: theme.spacing(1),
+    background: 'gray',
+    position: 'fixed',
+    right: '1px',
+    top: '20px',
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
+}));
 
 function HotspotPage(props) {
+  const classes = useStyles();
   const hotspotName = props.match.params.hotspotId
 
   return (
     <div>
-      <PaperSheet
+      <Fab color="primary" aria-label="add" className={classes.fabBack}>
+        <BackIcon />
+      </Fab>
+      <Fab color="primary" aria-label="add" className={classes.fabUpload}>
+        <BackIcon />
+      </Fab>
+      <HotspotInfo
         hotspotName = {hotspotName}
       />
       <h2>The camera will be floating here</h2>
+
       <h2>The Gallery will be here</h2>
     </div>
   );
 }
 
 export default HotspotPage;
+
+

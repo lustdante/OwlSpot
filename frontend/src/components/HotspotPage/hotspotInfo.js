@@ -5,13 +5,14 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(3, 10),
   },
 }));
 
-export default function PaperSheet(props) {
+export default function HotspotInfo(props) {
   const classes = useStyles();
   const hotspotName = props.hotspotName
+  const hotspotDescription = 'DESCRIPTION WILL GO HERE'
 
   return (
     <div>
@@ -20,7 +21,7 @@ export default function PaperSheet(props) {
           {hotspotName}
         </Typography>
         <Typography component="p">
-          Paper can be used to build surface or other elements for your application.
+          {hotspotDescription}
         </Typography>
       </Paper>
     </div>
