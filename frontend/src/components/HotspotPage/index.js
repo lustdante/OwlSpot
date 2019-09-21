@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
 import HotspotInfo from './hotspotInfo';
-import FloatingUploadButton from './floatingUpload'
+import UploadButton from './floatingUpload'
 
 const useStyles = makeStyles(theme => ({
   fabBack: {
@@ -36,7 +36,7 @@ function HotspotPage(props) {
         <BackIcon />
       </Fab>
       <Fab color="primary" aria-label="add" className={classes.fabUpload}>
-        <BackIcon />
+        <UploadButton />
       </Fab>
       <HotspotInfo
         hotspotName = {hotspotName}

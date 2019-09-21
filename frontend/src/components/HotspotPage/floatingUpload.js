@@ -40,7 +40,7 @@ function uploadBase64(file, props) {
   };
 }
 
-export function UploadButton(props) {
+export default function UploadButton(props) {
   
   const fileUploadedHandler = (event) => {
     const file = event.target.files[0];
