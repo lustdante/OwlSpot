@@ -1,0 +1,17 @@
+version: '3'
+services:
+  postgres:
+    container_name: owlspot-postgres
+    image: postgres:10.4
+    environment:
+      POSTGRES_DB: 'owlspot'
+      POSTGRES_USER: 'owlspot_user'
+      POSTGRES_PASSWORD: 'owlspot1234'
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+    driver: local
