@@ -30,7 +30,12 @@ function uploadBase64(file, props) {
 const UploadButton = props => {
   const fileUploadedHandler = async event => {
     const file = event.target.files[0];
-    await props.updatePhoto({ variables: { upload: file, hotspotId: 123 } });
+    await props.updatePhoto({
+      variables: {
+        upload: file,
+        hotspotId: '25a24e2b-900c-47da-8464-bb64b85c50aa',
+      },
+    });
     uploadBase64(file, props);
     console.log(props.imgUrl);
   };

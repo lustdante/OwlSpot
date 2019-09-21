@@ -1,7 +1,16 @@
 const AWS = require('aws-sdk');
+const {
+  GraphQLDate,
+  GraphQLTime,
+  GraphQLDateTime,
+} = require('graphql-iso-date');
 const models = require('./models');
 
 const rootTypeDefs = `
+  scalar Date
+  scalar Time
+  scalar DateTime
+
   type Query {
     """Print env"""
     env: String!
@@ -55,7 +64,15 @@ const rootTypeDefs = `
     lng: Float!
 
     """Get list of photos"""
-    photos: [String]!
+    photos: [Photo]!
+  }
+
+  type Photo {
+    """Url of the photo"""
+    url: String!
+
+    """Timestamp of creation"""
+    createdAt: DateTime!
   }
 `;
 
@@ -81,11 +98,12 @@ module.exports = {
         });
         if (!hotspot) return false;
 
-        const { filename, mimetype, createReadStream } = await upload;
+        const { mimetype, createReadStream } = await upload;
+
         const params = {
           ACL: 'public-read',
           Bucket: process.env.app__aws_bucket,
-          Key: `${hotspotId}/${Date.now()}.${filename}`,
+          Key: `${hotspotId}/${Date.now()}`,
           Body: createReadStream(),
           ContentType: mimetype,
           CacheControl: 'no-cache', // This will be removed by Lambda function
@@ -112,7 +130,15 @@ module.exports = {
       photos: hotspot =>
         models.HotspotPhoto.findAll({
           where: { hotspotId: hotspot.id },
-        }).then(photos => photos.map(photo => photo.url)),
+        }).then(photos =>
+          photos.map(photo => ({
+            url: photo.url,
+            createdAt: photo.createdAt,
+          })),
+        ),
     },
+    Date: GraphQLDate,
+    Time: GraphQLTime,
+    DateTime: GraphQLDateTime,
   },
 };

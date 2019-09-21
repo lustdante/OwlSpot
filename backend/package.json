@@ -10,7 +10,7 @@
     "start:production": "./node_modules/.bin/pm2 start ecosystem.config.js --env production",
     "stop": "./node_modules/.bin/pm2 delete ecosystem.config.js",
     "log": "./node_modules/.bin/pm2 log ecosystem.config.js",
-    "force-sync": "node ./src/migrations/force-sync",
+    "force-sync": "node ./src/migrations/force-sync && npm run seed-all",
     "seed-all": "node_modules/.bin/sequelize db:seed:all",
     "build-docker": "node cli build-docker"
   },
@@ -24,6 +24,7 @@
     "dotenv": "^8.1.0",
     "dotenv-expand": "^5.1.0",
     "graphql": "^14.5.7",
+    "graphql-iso-date": "^3.6.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "pg": "^7.12.1",
