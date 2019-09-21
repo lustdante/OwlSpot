@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import CameraIcon from '@material-ui/icons/PhotoCamera';
 
 export function SimpleContainer() {
   return (
@@ -40,7 +40,7 @@ function uploadBase64(file, props) {
   };
 }
 
-export function UploadButton(props) {
+export default function UploadButton(props) {
   
   const fileUploadedHandler = (event) => {
     const file = event.target.files[0];
@@ -63,7 +63,7 @@ export function UploadButton(props) {
       />
       <label htmlFor="upload-button-file">
         <Button variant="contained" component="span" className={classes.button}>
-          Upload
+          <CameraIcon/>
         </Button>
       </label>
     </div>
