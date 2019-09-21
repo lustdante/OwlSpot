@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('./utils/loadEnv');
 
 const { ApolloServer } = require('apollo-server');
 const Schema = require('./schema');

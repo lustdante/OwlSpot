@@ -47,7 +47,7 @@ module.exports = {
   typeDefs: [rootTypeDefs],
   resolvers: {
     Query: {
-      env: () => process.env.app__ENV,
+      env: () => process.env.NODE_ENV,
       hotspots: () => models.Hotspot.findAll(),
       hotspot: (root, { hotspotId }) =>
         models.Hotspot.findOne({ where: { id: hotspotId } }),
