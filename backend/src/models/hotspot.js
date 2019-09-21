@@ -18,4 +18,12 @@ module.exports = (sequelize, DataTypes) =>
     description: {
       type: DataTypes.STRING,
     },
+    lan: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    lng: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
   });
