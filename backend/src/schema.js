@@ -40,6 +40,12 @@ const rootTypeDefs = `
 
     """Description of the hotspot"""
     description: String
+
+    """Latitude"""
+    lan: Float!
+
+    """Longitude"""
+    lng: Float!
   }
 `;
 

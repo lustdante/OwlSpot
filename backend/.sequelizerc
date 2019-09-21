@@ -1,0 +1,15 @@
+require('./src/utils/loadEnv')
+const path = require('path')
+
+const USERNAME = process.env.app__database_user
+const PASSWORD = process.env.app__database_password
+const HOST = process.env.app__sequelize_host
+const PORT = parseInt(process.env.app__sequelize_port, 10)
+const DATABASE = process.env.app__database
+
+module.exports = {
+  'models-path': path.resolve('src/models'),
+  'migrations-path': path.resolve('src/migrations/postgres'),
+  'seeders-path': path.resolve('src/seeders/postgres'),
+  'url': `postgresql://${USERNAME}:${PASSWORD}@${HOST}:${PORT}/${DATABASE}`
+}

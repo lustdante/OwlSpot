@@ -11,6 +11,7 @@
     "stop": "./node_modules/.bin/pm2 delete ecosystem.config.js",
     "log": "./node_modules/.bin/pm2 log ecosystem.config.js",
     "force-sync": "node ./src/migrations/force-sync",
+    "seed-all": "node_modules/.bin/sequelize db:seed:all",
     "build-docker": "node cli build-docker"
   },
   "keywords": [],
@@ -29,7 +30,8 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.19.0",
     "sequelize-cli": "^5.5.1",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
