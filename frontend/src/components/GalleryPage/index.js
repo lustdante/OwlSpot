@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import Image from 'material-ui-image'
+import Image from 'material-ui-image'
 
 
 const useStyles = (theme) => (
@@ -42,9 +42,12 @@ const sliderSettings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  adaptiveHeight: true,
-  variableWidth: true,
-  initialSlide: 0
+  centerMode: true,
+  centerPadding: 0,
+  // adaptiveHeight: true,
+  // variableWidth: true,
+  initialSlide: 0,
+  draggable: true,
 };
 
 const images = [
@@ -96,20 +99,27 @@ const images = [
 
 ];
 
+const slideImages = images.map((tile, index) =>
+  <div key={index}>
+    <h1>{index}</h1>
+    <Image src={tile.img} alt={tile.name}
+    />
+  </div>
+);
+
 class GalleryPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       open: false,
-      selectedImageIndex: -1
+      selectedImageIndex: 0,
     };
   }
 
   imageOnClick(tile) {
-    console.log(tile);
-    this.setState({ open: true });
-    console.log(images.indexOf(tile));
+    this.setState({ open: true});
+    this.setState({selectedImageIndex: images.indexOf(tile)});
   }
 
   handleClose() {
@@ -138,26 +148,7 @@ class GalleryPage extends React.Component {
               </Typography>
             </Toolbar>
             <Slider {...sliderSettings} initialSlide={this.state.selectedImageIndex}>
-              {/*{images.map(image => (*/}
-              {/*  <div key={image.img}>*/}
-              {/*    <img src={image.img} alt={image.timestamp}/>*/}
-              {/*  </div>*/}
-              {/*))}*/}
-              <div>
-                <h1>1</h1>
-                <img src='https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg'
-                     alt={'Name'}/>
-              </div>
-              <div>
-                <h1>2</h1>
-                <img src='https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg'
-                     alt={'Name'}/>
-              </div>
-              <div>
-                <h1>3</h1>
-                <img src='https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg'
-                     alt={'Name'}/>
-              </div>
+              {slideImages}
             </Slider>
           </Dialog>
         </div>
