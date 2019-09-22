@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BackIcon from '@material-ui/icons/ArrowBack';
 import Fab from '@material-ui/core/Fab';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   fabBack: {
