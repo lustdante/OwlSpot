@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import Slider from 'react-slick';
+import moment from 'moment';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'material-ui-image';
@@ -75,7 +76,7 @@ const Gallery = props => {
         <Slider {...sliderSettings} initialSlide={selectedIndex}>
           {photos.map((photo, index) => (
             <div key={index}>
-              <h1>{index}</h1>
+              <h1>{moment(photo.createdAt).format('LLL')}</h1>
               <Image src={photo.url} alt={photo.id} />
             </div>
           ))}
