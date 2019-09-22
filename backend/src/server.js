@@ -1,3 +1,4 @@
+const { GraphQLServer } = require('graphql-yoga');
 const AWS = require('aws-sdk');
 const {
   GraphQLDate,
@@ -10,7 +11,8 @@ const rootTypeDefs = `
   scalar Date
   scalar Time
   scalar DateTime
-
+  scalar Upload
+  
   type Query {
     """Print env"""
     env: String!
@@ -88,7 +90,7 @@ const s3 = new AWS.S3({
   region: process.env.app__aws_region,
 });
 
-module.exports = {
+module.exports = new GraphQLServer({
   typeDefs: [rootTypeDefs],
   resolvers: {
     Query: {
@@ -147,4 +149,4 @@ module.exports = {
     Time: GraphQLTime,
     DateTime: GraphQLDateTime,
   },
-};
+});
