@@ -1,12 +1,17 @@
 import React from 'react';
-import Googlemap from './googlemap';
+import { Query } from 'react-apollo';
+import HotspotGoogleMap from './HotspotGoogleMap';
+import { query } from './queries';
 
-function DashboardPage() {
+const DashboardPage = () => {
   return (
-    <div>
-      <Googlemap></Googlemap>
-    </div>
+    <Query query={query.getHotspots} notifyOnWetworkStatusChange>
+      {({ data, loading }) => {
+        if (loading) return 'loading...';
+        return <HotspotGoogleMap hotspots={data.hotspots} />;
+      }}
+    </Query>
   );
-}
+};
 
 export default DashboardPage;

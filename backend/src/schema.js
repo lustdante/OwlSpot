@@ -19,14 +19,14 @@ const rootTypeDefs = `
     hotspots: [Hotspot]!
 
     """Get a single hotspot"""
-    hotspot(hotspotId: ID!): Hotspot
+    hotspot(name: ID!): Hotspot
   }
 
   type Mutation {
     """Upload Photo to the related hotspot"""
     updatePhoto(
       """Id of target hotspot"""
-      hotspotId: ID!
+      name: ID!
 
       """Apollo File Upload"""
       upload: Upload!
@@ -48,8 +48,8 @@ const rootTypeDefs = `
   }
 
   type Hotspot {
-    """Unique Id of object"""
-    id: ID!
+    """Unique name of the hotspot"""
+    name: String!
 
     """Title of the hotspot"""
     title: String!
@@ -58,7 +58,7 @@ const rootTypeDefs = `
     description: String
 
     """Latitude"""
-    lan: Float!
+    lat: Float!
 
     """Longitude"""
     lng: Float!
@@ -68,6 +68,9 @@ const rootTypeDefs = `
   }
 
   type Photo {
+    """Unique Id of photo"""
+    id: ID!
+
     """Url of the photo"""
     url: String!
 
@@ -88,13 +91,12 @@ module.exports = {
     Query: {
       env: () => process.env.NODE_ENV,
       hotspots: () => models.Hotspot.findAll(),
-      hotspot: (root, { hotspotId }) =>
-        models.Hotspot.findOne({ where: { id: hotspotId } }),
+      hotspot: (root, { name }) => models.Hotspot.findOne({ where: { name } }),
     },
     Mutation: {
-      updatePhoto: async (root, { hotspotId, upload }) => {
+      updatePhoto: async (root, { name, upload }) => {
         const hotspot = await models.Hotspot.findOne({
-          where: { id: hotspotId },
+          where: { name },
         });
         if (!hotspot) return false;
 
@@ -103,7 +105,7 @@ module.exports = {
         const params = {
           ACL: 'public-read',
           Bucket: process.env.app__aws_bucket,
-          Key: `${hotspotId}/${Date.now()}`,
+          Key: `${name}/${Date.now()}`,
           Body: createReadStream(),
           ContentType: mimetype,
           CacheControl: 'no-cache', // This will be removed by Lambda function
@@ -117,7 +119,7 @@ module.exports = {
         }
 
         await models.HotspotPhoto.create({
-          hotspotId,
+          hotspotId: hotspot.id,
           url: uploadResult.Location,
         });
 
@@ -132,6 +134,7 @@ module.exports = {
           where: { hotspotId: hotspot.id },
         }).then(photos =>
           photos.map(photo => ({
+            id: photo.id,
             url: photo.url,
             createdAt: photo.createdAt,
           })),
