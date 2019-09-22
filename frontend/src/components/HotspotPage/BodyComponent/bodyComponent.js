@@ -10,21 +10,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function BodyComponent(props) {
-
   const classes = useStyles();
 
   return (
     <div>
-      <BodyDescription className={classes.root}
+      <BodyDescription
+        className={classes.root}
         hotspotDescription={props.hotspotDescription}
         hotspotCoverPhoto={props.hotspotCoverPhoto}
-      ></BodyDescription>
+      />
 
       {/* Jeffrey */}
       <BodyGallery
-      hotspotName={props.hotspotName}
-      hotspotPhotos={props.hotspotPhotos}
-      ></BodyGallery>
+        hotspotName={props.hotspotName}
+        hotspotPhotos={props.hotspotPhotos}
+      />
     </div>
   );
 }

@@ -12,23 +12,18 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     direction: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 }));
 
 export default function Header(props) {
-
   const classes = useStyles();
 
   return (
-    <div>
-      <Paper className={classes.root}>
-        <BackButton/>
-        <h2>{props.hotspotTitle}</h2>
-        <UploadButton
-          name={props.hotspotName}>
-        </UploadButton>
-      </Paper>
-    </div>
+    <Paper className={classes.root}>
+      <BackButton />
+      <h2>{props.hotspotTitle}</h2>
+      <UploadButton name={props.hotspotName}></UploadButton>
+    </Paper>
   );
 }
