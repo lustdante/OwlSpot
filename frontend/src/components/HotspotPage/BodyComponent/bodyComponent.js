@@ -12,18 +12,19 @@ const useStyles = makeStyles(theme => ({
 export default function BodyComponent(props) {
 
   const classes = useStyles();
-  const hotspotName = props.hotspotName;
-  const hotspotDescription = 'DESCRIPTION WILL GO HERE';
 
   return (
     <div>
       <BodyDescription className={classes.root}
-        hotspotName={hotspotName}
-        hotspotDescription={hotspotDescription}
+        hotspotDescription={props.hotspotDescription}
+        hotspotCoverPhoto={props.hotspotCoverPhoto}
       ></BodyDescription>
 
       {/* Jeffrey */}
-      <BodyGallery></BodyGallery>
+      <BodyGallery
+      hotspotName={props.hotspotName}
+      hotspotPhotos={props.hotspotPhotos}
+      ></BodyGallery>
     </div>
   );
 }

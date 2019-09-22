@@ -4,7 +4,6 @@ import { Query } from 'react-apollo';
 import { query } from './queries';
 import { Redirect } from 'react-router-dom';
 
-
 import HeaderComponent from './Header/header'
 import BodyComponent from './BodyComponent/bodyComponent.js';
 
@@ -48,15 +47,5 @@ function HotspotPage(props) {
     </Query>
     )
 }
-
-/* // =======
-// function HotspotPage({ match }) { */
-/* //   return (
-//     <div>
-//       This is Hotspot Page
-//       <Demo name={match.params.name} />
-//     </div>
-//   );
-// } */
 
 export default HotspotPage;

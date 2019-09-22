@@ -22,13 +22,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function BodyDescription(props) {
   const classes = useStyles();
-  const hotspotDescription =
-    'This place is located in Rice University. Go check out the gallery to see what has been upto';
-    
+
   return (
     <div className={classes.root}>
       <img className={classes.image} src={Image} alt="Logo" />
-      <div className={classes.description}>{hotspotDescription}</div>
+      <div className={classes.description}>{props.hotspotDescription}</div>
     </div>
   );
 }
