@@ -1,4 +1,5 @@
-require('dotenv').config();
+require('../utils/loadEnv');
+
 const { Client } = require('pg');
 const models = require('../models');
 
