@@ -19,14 +19,15 @@ const useStyles = makeStyles(theme => ({
 export default function Header(props) {
 
   const classes = useStyles();
-  const hotspotName = props.hotspotName
 
   return (
     <div>
       <Paper className={classes.root}>
         <BackButton/>
-        <h2>{hotspotName}</h2>
-        <UploadButton/>
+        <h2>{props.hotspotTitle}</h2>
+        <UploadButton
+          name={props.hotspotName}>
+        </UploadButton>
       </Paper>
     </div>
   );

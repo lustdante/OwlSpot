@@ -28,7 +28,8 @@ function HotspotPage(props) {
           return (
             <div>
               <HeaderComponent
-                hotspotName = {data.hotspot.title}>
+                hotspotTitle = {data.hotspot.title}
+                hotspotName = {data.hotspot.name}>
               </HeaderComponent>
               <br/>
               <br/>

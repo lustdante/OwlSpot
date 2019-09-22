@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { graphql } from 'react-apollo';
 import { makeStyles } from '@material-ui/core/styles';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Fab from '@material-ui/core/Fab';
+import { mutation } from '../queries';
 
 const useStyles = makeStyles(theme => ({
   fabCamera: {
@@ -13,29 +15,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function UploadButton(props) {
-
-  function uploadBase64(file, props) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-  
-    reader.onload = function () {
-      console.log(reader.result);
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
-  }
-
-  const fileUploadedHandler = (event) => {
-    const file = event.target.files[0];
-    console.log(file);
-    uploadBase64(file, props);
-    console.log(props.imgUrl)
-  }
-
+const UploadButton = props => {
+  const { uploadPhoto, name } = props;
+  const [disabled, setDisabled] = useState(false);
   const classes = useStyles();
-  return (
+
+  var button = (
     <div className={props.className}>
       <input
         accept="image/*"
@@ -43,7 +28,13 @@ export default function UploadButton(props) {
         id="upload-button-file"
         multiple
         type="file"
-        onChange={fileUploadedHandler}
+        onChange={event => {
+          const file = event.target.files[0];
+          setDisabled(true);
+          return uploadPhoto({
+            variables: { name, upload: file },
+          }).finally(() => setDisabled(false));
+        }}
       />
       <label htmlFor="upload-button-file">
         <Fab 
@@ -51,10 +42,18 @@ export default function UploadButton(props) {
           size="small"
           color="primary"
           aria-label="back"
-          className={classes.fabCamera}>
+          className={classes.fabCamera}
+          disabled={disabled}
+        >
           <CameraIcon />
         </Fab>
       </label>
     </div>
-  )
+  );
+
+  return button;
 }
+
+export default graphql(mutation.uploadPhoto, {
+  name: 'uploadPhoto',
+})(UploadButton);
