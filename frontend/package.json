@@ -10,10 +10,11 @@
     "apollo-upload-client": "^11.0.0",
     "aws-sdk": "^2.533.0",
     "clsx": "^1.0.4",
+    "google-maps-react": "^2.0.2",
     "graphql": "^14.5.7",
     "graphql-tag": "^2.10.1",
-    "google-maps-react": "^2.0.2",
     "lodash": "^4.17.15",
+    "material-ui-image": "^3.2.1",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -21,7 +22,9 @@
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1"
   },
   "config": {
     "unsafe-perm": true,
