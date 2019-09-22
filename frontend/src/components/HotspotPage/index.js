@@ -3,8 +3,8 @@ import Fab from '@material-ui/core/Fab';
 import { makeStyles } from '@material-ui/core/styles';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
-import HotspotInfo from './hotspotInfo';
-import UploadButton from './floatingUpload'
+import BodyComponent from './BodyComponent/bodyComponent.js';
+import UploadButton from './floatingUpload';
 
 const useStyles = makeStyles(theme => ({
   fabBack: {
@@ -28,40 +28,16 @@ const useStyles = makeStyles(theme => ({
 
 function HotspotPage(props) {
   const classes = useStyles();
-  const hotspotName = props.match.params.hotspotId
-
+  const hotspotName = props.match.params.hotspotId;
 
   // Top component
-    // Butotns & Name
+  // Butotns & Name
 
   // Bottom Component
-      // Descript + Pic
-      // Gallery
+  // Descript + Pic
+  // Gallery
 
-
-
-  return (
-    <div>
-      // Floating
-      <HeaderComponent></HeaderComponent>
-
-      <BodyComponent></BodyComponent>
-
-
-      {/* <Fab color="primary" aria-label="add" className={classes.fabBack}>
-        <BackIcon />
-      </Fab>
-      <Fab color="primary" aria-label="add" className={classes.fabUpload}>
-        <UploadButton />
-      </Fab>
-      <HotspotInfo
-        hotspotName = {hotspotName}
-      /> */}
-      
-    </div>
-  );
+  return <BodyComponent hotspotName={hotspotName}></BodyComponent>;
 }
 
 export default HotspotPage;
-
-
