@@ -20,7 +20,6 @@ export default function UploadButton(props) {
     reader.readAsDataURL(file);
   
     reader.onload = function () {
-      props.onImageChange(reader.result);
       console.log(reader.result);
     };
     reader.onerror = function (error) {
