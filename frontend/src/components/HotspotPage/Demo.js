@@ -17,7 +17,6 @@ const Demo = ({ name }) => (
         return <Redirect to="/" />;
       }
 
-      console.log('data.hotspot.name', data.hotspot.name);
       return (
         <div>
           <h1>{data.hotspot.title}</h1>
