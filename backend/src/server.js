@@ -12,7 +12,7 @@ const rootTypeDefs = `
   scalar Time
   scalar DateTime
   scalar Upload
-  
+
   type Query {
     """Print env"""
     env: String!
@@ -61,6 +61,9 @@ const rootTypeDefs = `
 
     """Description of the hotspot"""
     description: String
+
+    """Official image of the hotspot"""
+    image: String!
 
     """Latitude"""
     lat: Float!

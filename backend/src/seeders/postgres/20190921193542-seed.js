@@ -6,6 +6,8 @@ const INITIAL_HOTSPOTS = [
     name: 'rice-univ-coffeehouse',
     title: 'Coffeehouse',
     description: `Everyone's favorite coffeshop inside RMC`,
+    image:
+      'https://owlspot-image.s3.us-east-2.amazonaws.com/hotspot/rice-univ-coffeehouse.jpg',
     lat: 29.717949,
     lng: -95.402344,
   },
@@ -13,6 +15,8 @@ const INITIAL_HOTSPOTS = [
     name: 'rice-univ-brochstein',
     title: 'Brochstein',
     description: 'Where art and Flo Paris is',
+    image:
+      'https://owlspot-image.s3.us-east-2.amazonaws.com/hotspot/rice-univ-brochstein.jpg',
     lat: 29.717826,
     lng: -95.400832,
   },
@@ -20,6 +24,8 @@ const INITIAL_HOTSPOTS = [
     name: 'rice-univ-fondren-1st-floor',
     title: 'Fondren 1st floor',
     description: 'Quite place',
+    image:
+      'https://owlspot-image.s3.us-east-2.amazonaws.com/hotspot/rice-univ-fondren-1st-floor.jpeg',
     lat: 29.718167,
     lng: -95.400083,
   },
@@ -27,6 +33,8 @@ const INITIAL_HOTSPOTS = [
     name: 'rice-univ-brown-commons',
     title: 'Brown Commons',
     description: 'Brown College Common Area',
+    image:
+      'https://owlspot-image.s3.us-east-2.amazonaws.com/hotspot/rice-univ-brown-commons.jpg',
     lat: 29.721535,
     lng: -95.396308,
   },
@@ -34,6 +42,8 @@ const INITIAL_HOTSPOTS = [
     name: 'rice-univ-farnsworth-pavillion',
     title: 'Farnsworth Pavillion',
     description: 'Where food is served for Hackrice',
+    image:
+      'https://owlspot-image.s3.us-east-2.amazonaws.com/hotspot/rice-univ-farnsworth-pavillion.jpg',
     lat: 29.717703,
     lng: -95.402403,
   },
@@ -41,6 +51,8 @@ const INITIAL_HOTSPOTS = [
     name: 'rice-univ-grand-hall',
     title: 'Grand Hall',
     description: 'Where major events like Hackrice takes place',
+    image:
+      'https://owlspot-image.s3.us-east-2.amazonaws.com/hotspot/rice-univ-grand-hall.png',
     lat: 29.717906,
     lng: -95.401822,
   },
