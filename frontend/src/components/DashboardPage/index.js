@@ -7,6 +7,7 @@ const DashboardPage = () => (
   <Query query={query.getHotspots} notifyOnWetworkStatusChange>
     {({ data, loading }) => {
       if (loading) return 'loading...';
+      if (!data || !data.hotspots) return 'Something went wrong. Ask JW.';
       return <HotspotGoogleMap hotspots={data.hotspots} />;
     }}
   </Query>

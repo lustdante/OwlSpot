@@ -5,6 +5,7 @@ const Schema = require('./schema');
 
 const server = new ApolloServer({
   ...Schema,
+  cors: false,
   playground: true,
   introspection: true,
 });
