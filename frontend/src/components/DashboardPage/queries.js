@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
-export const mutation = {
-  updatePhoto: gql`
-    mutation UploadPhoto($name: ID!, $upload: Upload!) {
-      updatePhoto(name: $name, upload: $upload) {
+export const query = {
+  getHotspots: gql`
+    query HotspotsList {
+      hotspots {
         id
         name
         title

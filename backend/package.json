@@ -25,6 +25,7 @@
     "dotenv-expand": "^5.1.0",
     "graphql": "^14.5.7",
     "graphql-iso-date": "^3.6.1",
+    "graphql-yoga": "^1.18.3",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "pg": "^7.12.1",
