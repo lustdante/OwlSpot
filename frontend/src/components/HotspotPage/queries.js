@@ -7,6 +7,7 @@ export const query = {
         id
         name
         title
+        image
         description
         lat
         lng
@@ -27,6 +28,7 @@ export const mutation = {
         id
         name
         title
+        image
         description
         lat
         lng
