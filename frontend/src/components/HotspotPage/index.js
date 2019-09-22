@@ -8,12 +8,14 @@ function HotspotPage(props) {
 
   return (
     <div>
-      {/* Floating header eventually */}
       <HeaderComponent
         hotspotName = {hotspotName}>
       </HeaderComponent>
-      
-      <BodyComponent 
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <BodyComponent
         hotspotName={hotspotName}>
       </BodyComponent>;
 

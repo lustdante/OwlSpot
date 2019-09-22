@@ -6,6 +6,8 @@ import UploadButton from './uploadButton';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    width: '100%',
+    position: 'fixed',
     padding: theme.spacing(1, 1),
     display: 'flex',
     direction: 'column',

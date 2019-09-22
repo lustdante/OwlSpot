@@ -13,14 +13,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-  title: {
-    fontFamily: 'Open Sans',
-    fontSize: '35px',
-    marginTop: '.5em',
-    color: '#666',
-    textAlign: 'center',
-    padding: '20px',
-  },
   description: {
     fontFamily: 'Open Sans',
     color: '#4f5f76',
@@ -35,7 +27,6 @@ export default function BodyDescription(props) {
     
   return (
     <div className={classes.root}>
-      <div className={classes.title}>{props.hotspotName}</div>
       <img className={classes.image} src={Image} alt="Logo" />
       <div className={classes.description}>{hotspotDescription}</div>
     </div>
