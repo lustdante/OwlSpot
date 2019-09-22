@@ -4,6 +4,7 @@ export const query = {
   getHotspots: gql`
     query HotspotsList {
       hotspots {
+        id
         name
         title
         description

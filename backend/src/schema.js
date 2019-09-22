@@ -24,7 +24,7 @@ const rootTypeDefs = `
 
   type Mutation {
     """Upload Photo to the related hotspot"""
-    updatePhoto(
+    uploadPhoto(
       """Id of target hotspot"""
       name: ID!
 
@@ -48,6 +48,9 @@ const rootTypeDefs = `
   }
 
   type Hotspot {
+    """Unique Id of hotspot"""
+    id: ID!
+
     """Unique name of the hotspot"""
     name: String!
 
@@ -94,7 +97,7 @@ module.exports = {
       hotspot: (root, { name }) => models.Hotspot.findOne({ where: { name } }),
     },
     Mutation: {
-      updatePhoto: async (root, { name, upload }) => {
+      uploadPhoto: async (root, { name, upload }) => {
         const hotspot = await models.Hotspot.findOne({
           where: { name },
         });

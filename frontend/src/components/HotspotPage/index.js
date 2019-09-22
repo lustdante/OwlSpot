@@ -1,7 +1,13 @@
 import React from 'react';
+import Demo from './Demo';
 
-function HotspotPage() {
-  return <div>This is Hotspot Page</div>;
+function HotspotPage({ match }) {
+  return (
+    <div>
+      This is Hotspot Page
+      <Demo name={match.params.name} />
+    </div>
+  );
 }
 
 export default HotspotPage;
