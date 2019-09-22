@@ -36,7 +36,16 @@ const INITIAL_HOTSPOTS = [
     lat: 29.717703,
     lng: -95.402403,
   },
+  {
+    name: 'rice-unit-grand-hall',
+    title: 'Grand Hall',
+    description: 'Where major events like Hackrice takes place',
+    lat: 29.717906,
+    lng: -95.401822,
+  },
 ];
+
+const INITIAL_PHOTOS = [{}];
 
 module.exports = {
   up: async queryInterface => {
